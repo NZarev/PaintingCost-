@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class PaintingCost {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int plasticCover = scanner.nextInt();
+        int paintLiters = scanner.nextInt();
+        int thinnerLiters = scanner.nextInt();
+        int hoursWorked = scanner.nextInt();
+
+        double plasticPricePerSquareMeter = 1.50;
+        double paintPricePerLiter = 14.50;
+        double thinnerPricePerLiter = 5.00;
+        double laborCostPercentage = 0.30;
+        double additionalPlastic = 2;
+        double additionalPaint = 0.10;
+
+        double totalPlastic = plasticCover + additionalPlastic;
+        double totalPaint = paintLiters + (paintLiters * additionalPaint);
+
+        double plasticCost = totalPlastic * plasticPricePerSquareMeter;
+        double paintCost = totalPaint * paintPricePerLiter;
+        double thinnerCost = thinnerLiters * thinnerPricePerLiter;
+        double bagsCost = 0.40;
+
+        double totalMaterialCost = plasticCost + paintCost + thinnerCost + bagsCost;
+        double laborCost = totalMaterialCost * laborCostPercentage * hoursWorked;
+
+        double totalCost = totalMaterialCost + laborCost;
+
+        System.out.printf("%.2f\n", totalCost);
+
+        scanner.close();
+    }
+}
